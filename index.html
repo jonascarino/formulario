@@ -14,41 +14,53 @@
 
     </header>
 
-    <section>
-        <form action="">
-            <label for="nome">Nome: </label>
-            <input type="text" id="nome" name="nome" required> <br>
+   Seu código é um ótimo ponto de partida para um formulário de candidatura, mas há alguns erros estruturais no HTML (como tags que não foram fechadas) e algumas melhorias de semântica que podem ser feitas para garantir que ele funcione corretamente.
 
-            <label for="email">E-mail: </label>
-            <input type="email" id="email" name="email" required><br>
+Aqui está o código corrigido e otimizado:
 
-            <label for="idade">Idade: </label>
-            <input type="datetime" id="idade" name="idade" required><br>
+HTML
+<section>
+    <form action="" method="POST">
+        <label for="nome">Nome: </label>
+        <input type="text" id="nome" name="nome" required> <br><br>
 
-            <label for="materia">Para qual matéria você está se candidatando para lecionar?</label><br>
-            <select name="materia" id="materia">
-                <option value="matematica">Matemática</option>
-                <option value="Portugues">Português</option>
-                <option value="biologia">Biologia</option>
-                <option value="ciencias">Ciências</option>
-                <option value="historia">História</option>
-                <option value="geografia">Geografia</option>
-                <option value="artes">Artes</option>
-        </form>
-        <form action="">
-         <label for="escolaridade">Nível de escolaridade: </label><br>
-                    <select name="escolaridade" id="escolaridade">
-                        <option value="superiorcom">Superior completo</option>
-                        <option value="mestradocursando">Cursando mestrado</option>
-                        <option value="mestradocompleto">Mestrado completo</option>
-                        <option value="doutoradocursando">Cursando doutorado</option>
-                        <option value="doutoradocompleto">Doutorado completo</option>
+        <label for="email">E-mail: </label>
+        <input type="email" id="email" name="email" required><br><br>
 
-                        <label for="descricao">Faça uma breve descrição sobre você</label>
-                        <textarea name="descricao" id="descricaoA" required></textarea> <br>
-                   
-        </form>
-    </section>
+        <!-- Alterado para type="number" já que é para idade. Se for data de nascimento, use type="date" -->
+        <label for="idade">Idade: </label>
+        <input type="number" id="idade" name="idade" min="18" required><br><br>
+
+        <label for="materia">Para qual matéria você está se candidatando para lecionar?</label><br>
+        <select name="materia" id="materia" required>
+            <!-- Adicionado um valor vazio para forçar o usuário a escolher uma opção -->
+            <option value="" disabled selected>Selecione uma matéria</option>
+            <option value="matematica">Matemática</option>
+            <option value="portugues">Português</option>
+            <option value="biologia">Biologia</option>
+            <option value="ciencias">Ciências</option>
+            <option value="historia">História</option>
+            <option value="geografia">Geografia</option>
+            <option value="artes">Artes</option>
+        </select><br><br> <!-- Faltava fechar a tag </select> no seu código -->
+
+        <label for="escolaridade">Nível de escolaridade: </label><br>
+        <select name="escolaridade" id="escolaridade" required>
+            <option value="" disabled selected>Selecione seu nível</option>
+            <option value="superiorcom">Superior completo</option>
+            <option value="mestradocursando">Cursando mestrado</option>
+            <option value="mestradocompleto">Mestrado completo</option>
+            <option value="doutoradocursando">Cursando doutorado</option>
+            <option value="doutoradocompleto">Doutorado completo</option>
+        </select><br><br> <!-- Faltava fechar a tag </select> no seu código -->
+
+        <label for="descricao">Faça uma breve descrição sobre você:</label><br>
+        <textarea name="descricao" id="descricao" rows="4" required></textarea> <br><br>
+
+        <!-- Adicionado um botão para enviar o formulário -->
+        <button type="submit">Enviar Candidatura</button>
+    </form>
+</section>
 </body>
 
 </html>
